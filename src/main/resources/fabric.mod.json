@@ -6,9 +6,14 @@
   "name": "MoonMod",
   "description": "A remake and port of Sutr90's Moon Mod!",
   "authors": [
-    "Turnip Labs"
+    "BTA Team Port",
+		"Sutr90 (Original Dev)"
   ],
-  "contact": {
+	"contributors": [
+		"Lexal (CosmicCraft code)",
+		"UselessBullets (CosmicCraft code)"
+	],
+	"contact": {
     "homepage": "",
     "sources": ""
   },
@@ -19,7 +24,13 @@
   "entrypoints": {
     "main": [
       "teamport.moonmod.MoonMod"
-    ]
+    ],
+		"preLaunch": [
+			"teamport.moonmod.MoonMod"
+		],
+		"terrain-api": [
+			"teamport.moonmod.compat.terrainapi.TerrainAPIPlugin"
+		]
   },
   "mixins": [
 		"moonmod.mixins.json"
