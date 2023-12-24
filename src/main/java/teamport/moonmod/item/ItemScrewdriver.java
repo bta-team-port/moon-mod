@@ -7,6 +7,7 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.sound.SoundType;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import teamport.moonmod.block.MoonModBlocks;
 
 public class ItemScrewdriver extends Item {
 
@@ -21,9 +22,8 @@ public class ItemScrewdriver extends Item {
 		blockY += side.getOffsetY();
 		blockZ += side.getOffsetZ();
 		int i1 = world.getBlockId(blockX, blockY, blockZ);
-		if (i1 == 0) {
-			if (world.setBlockWithNotify(blockX, blockY, blockZ, Block.fire.id)) {
-				world.playSoundEffect(SoundType.WORLD_SOUNDS, (double)blockX + 0.5, (double)blockY + 0.5, (double)blockZ + 0.5, "fire.ignite", 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
+		if (i1 == MoonModBlocks.cheese.id) {
+			if (world.setBlockWithNotify(blockX, blockY, blockZ, MoonModBlocks.portalMoon.id)) {
 				itemstack.damageItem(1, entityplayer);
 				return true;
 			} else {

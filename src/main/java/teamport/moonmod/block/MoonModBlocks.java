@@ -27,19 +27,19 @@ public class MoonModBlocks {
 		.setHardness(1.1f)
 		.setResistance(1.1f)
 		.setTextures("clothBlock.png")
-		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.CAVES_CUT_THROUGH)
-		.build(new Block("wool.reinforced", blockID++, Material.cloth));
+		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
+		.build(new BlockReinforcedWool("wool.reinforced", blockID++, Material.cloth));
 
 	public static final Block tent = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.cloth", "step.cloth", 1.0f, 1.0f))
 		.setHardness(1.1f)
 		.setResistance(1.1f)
 		.setTextures("tent.png")
-		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.CAVES_CUT_THROUGH)
+		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
 		.build(new Block("wool.reinforced", blockID++, Material.cloth));
 
 	public static final Block cheese = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.cloth", "step.cloth", 1.0f, 1.0f))
+		.setBlockSound(new BlockSound("step.wood", "step.wood", 1.0f, 1.0f))
 		.setHardness(0.6f)
 		.setResistance(0.6f)
 		.setTextures("cheeseBlock.png")
@@ -47,7 +47,7 @@ public class MoonModBlocks {
 		.build(new BlockCheese("cheese", blockID++, Material.cloth));
 
 	public static final Block portalMoon = new BlockBuilder(MOD_ID)
-		.setBlockSound(new BlockSound("step.stone", "step.stone", 1.0f, 1.0f))
+		.setBlockSound(new BlockSound("step.stone", "random.glass", 1.0f, 1.0f))
 		.setHardness(-1.0f)
 		.setResistance(-1.0f)
 		.setLuminance(15)
