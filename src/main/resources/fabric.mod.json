@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "moonmod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "MoonMod",
+  "description": "A remake and port of Sutr90's Moon Mod!",
   "authors": [
     "Turnip Labs"
   ],
@@ -18,11 +18,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-        "turniplabs.examplemod.ExampleMod"
+      "teamport.moonmod.MoonMod"
     ]
   },
   "mixins": [
-      "examplemod.mixins.json"
+		"moonmod.mixins.json"
   ],
 
   "depends": {
