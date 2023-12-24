@@ -53,6 +53,6 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, RecipeEntry
 	public void onPreLaunch() {
 		new MoonBiomes().initializeBiomes();
 		BiomeProviderMoon.init();
-		MOON_WORLD = WorldTypes.register("moonmod.worldtype.moon", new WorldTypeMoon("moonmod.worldtype.moon"));
+		MOON_WORLD = WorldTypes.register(MoonMod.MOD_ID+":moon", new WorldTypeMoon("moonmod.worldtype.moon"));
 	}
 }
