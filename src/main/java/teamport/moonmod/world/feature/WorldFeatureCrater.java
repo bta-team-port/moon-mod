@@ -7,20 +7,31 @@ import java.util.Random;
 
 public class WorldFeatureCrater extends WorldFeature {
 
+	public boolean isInsideEllipsoid(int x, int y, int z, float rx2, float ry2, float rz2, Random random){
+		return ((x*x)/rx2 + (y*y)/ry2 + (z*z)/rz2) <= 1 + (random.nextFloat()/15 - random.nextFloat()/25);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		System.out.println(x + " " + z);
 
-		if (!world.isClientSide && y >= 60) {
+		if (!world.isClientSide) {
+			int sizeX = random.nextInt(16) + 10;
+			int sizeZ = random.nextInt(16) + 10;
+			int sizeY = random.nextInt(8) + 8;
 
-			for (int sizeX = -4; sizeX <= 4; sizeX++) {
-				for (int sizeY = -4; sizeY <= 4; sizeY++) {
-					for (int sizeZ = -4; sizeZ <= 4; sizeZ++) {
-						world.setBlockWithNotify(x + sizeX, y + sizeY, z + sizeZ, 0);
+			int rx2 = (sizeX) * (sizeX);
+			int ry2 = (sizeY) * (sizeY);
+			int rz2 = (sizeZ) * (sizeZ);
+
+			for (int craterX = -sizeX; craterX < sizeX; craterX++) {
+				for (int craterY = -sizeY; craterY < sizeY; craterY++) {
+					for (int craterZ = -sizeZ; craterZ < sizeZ; craterZ++) {
+						if (isInsideEllipsoid(craterX, craterY, craterZ, rx2, ry2, rz2, random)){
+							world.setBlockWithNotify(x + craterX, y + craterY, z + craterZ, 0);
+						}
 					}
 				}
 			}
-
 			return true;
 		}
 		return true;

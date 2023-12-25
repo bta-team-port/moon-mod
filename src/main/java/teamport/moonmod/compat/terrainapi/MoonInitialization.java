@@ -25,7 +25,7 @@ public class MoonInitialization extends BaseInitialization {
 
 	@Override
 	protected void initRandom() {
-		randomFeatures.addFeatureSurface(new WorldFeatureCrater(), 64);
+		randomFeatures.addFeatureSurface(new WorldFeatureCrater(), 16);
 	}
 
 	@Override
