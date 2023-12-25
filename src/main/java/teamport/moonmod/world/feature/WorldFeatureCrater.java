@@ -16,7 +16,7 @@ public class WorldFeatureCrater extends WorldFeature {
 			for (int sizeX = -4; sizeX <= 4; sizeX++) {
 				for (int sizeY = -4; sizeY <= 4; sizeY++) {
 					for (int sizeZ = -4; sizeZ <= 4; sizeZ++) {
-						world.setBlockWithNotify(x + sizeZ, y + sizeY, z + sizeZ, 0);
+						world.setBlockWithNotify(x + sizeX, y + sizeY, z + sizeZ, 0);
 					}
 				}
 			}
