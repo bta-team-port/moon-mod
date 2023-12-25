@@ -22,7 +22,12 @@ public class ChunkDecoratorMoonAPI extends ChunkDecoratorAPI {
 
 	@Override
 	public void decorateAPI() {
-
+		int xCoord = parameterBase.chunk.xPosition * 16;
+		int zCoord = parameterBase.chunk.zPosition * 16;
+		generateStructures(parameterBase.biome, parameterBase.chunk, parameterBase.random);
+		generateOreFeatures(parameterBase.biome, xCoord, zCoord, parameterBase.random, parameterBase.chunk);
+		generateBiomeFeature(parameterBase.biome,xCoord, zCoord, parameterBase.random, parameterBase.chunk);
+		generateRandomFeatures(parameterBase.biome,xCoord, zCoord, parameterBase.random, parameterBase.chunk);
 	}
 
 	@Override
@@ -36,7 +41,7 @@ public class ChunkDecoratorMoonAPI extends ChunkDecoratorAPI {
 	}
 
 	@Override
-	public void generateRandomFeatures(Biome biome, int x, int z, Random random, Chunk chunk) {
+	public void generateRandomFeatures(Biome biome, int x, int z, Random random, Chunk chunk){
 		int featureSize = randomFeatures.featureFunctionsList.size();
 		for (int i = 0; i < featureSize; i++) {
 			if (random.nextInt(randomFeatures.inverseProbabilityList.get(i)) != 0) {continue;}
