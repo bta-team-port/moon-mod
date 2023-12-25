@@ -36,7 +36,7 @@ public class MoonModBlocks {
 		.setResistance(6.0f)
 		.setTextures("tent.png")
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
-		.build(new Block("wool.reinforced", blockID++, Material.cloth));
+		.build(new BlockTent("wool.reinforced.tent", blockID++, Material.cloth));
 
 	public static final Block cheese = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.wood", "step.wood", 1.0f, 1.0f))

@@ -3,16 +3,18 @@ moonmod.worldtype.moon.desc=A barren and flat satellite far away from home.
 
 moonmod.biome.moon=Lunar Plains
 
+dimension.moon.name=The Moon
+
 tile.moonmod.regolith.name=Regolith
 tile.moonmod.regolith.desc=Fragmented and unconsolidated lunar layering.
 tile.moonmod.cheese.name=Block of Cheese
 tile.moonmod.cheese.desc=A solid curd of coagulated milk.
-tile.moonmod.wool.reinforced.name=Reinforced Cloth
-tile.moonmod.wool.reinforced.desc=Cloth lined with gold to protect from UVs.
+tile.moonmod.wool.reinforced.name=Reinforced Wool
+tile.moonmod.wool.reinforced.desc=Wool and cloth lined with gold to protect from UVs.
+tile.moonmod.wool.reinforced.tent.name=Reinforced Tent
+tile.moonmod.wool.reinforced.tent.desc=Collapsable shelter that's portable.
 tile.moonmod.portal.moon.name=Moon Portal
 tile.moonmod.portal.moon.desc=A portal to the Moon.
-tile.moonmod.tent.name=Tent
-tile.moonmod.tent.desc=Collapsable shelter that's portable.
 
 
 
