@@ -25,7 +25,7 @@ public class MoonModBlocks {
 	public static final Block woolReinforced = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.cloth", "step.cloth", 1.0f, 1.0f))
 		.setHardness(1.1f)
-		.setResistance(1.1f)
+		.setResistance(6.0f)
 		.setTextures("clothBlock.png")
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
 		.build(new BlockReinforcedWool("wool.reinforced", blockID++, Material.cloth));
@@ -33,10 +33,10 @@ public class MoonModBlocks {
 	public static final Block tent = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.cloth", "step.cloth", 1.0f, 1.0f))
 		.setHardness(1.1f)
-		.setResistance(1.1f)
+		.setResistance(6.0f)
 		.setTextures("tent.png")
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
-		.build(new Block("wool.reinforced", blockID++, Material.cloth));
+		.build(new BlockTent("wool.reinforced.tent", blockID++, Material.cloth));
 
 	public static final Block cheese = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.wood", "step.wood", 1.0f, 1.0f))
@@ -54,7 +54,7 @@ public class MoonModBlocks {
 		.setTextures(13, 12)
 		.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
 		.setBlockColor(new BlockColorWater())
-		.build(new BlockPortal("portal.moon", blockID++, 3, cheese.id, bedrock.id));
+		.build(new BlockPortal("portal.moon", blockID++, 3, MoonModBlocks.cheese.id, fire.id));
 
 	public void initializeBlocks(){}
 }

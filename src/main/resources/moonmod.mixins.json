@@ -4,7 +4,9 @@
   "package": "teamport.moonmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "WorldMixin"
+    "WorldMixin",
+    "RenderGlobalMixin",
+    "EntityPlayerMixin"
   ],
   "client": [
   ],

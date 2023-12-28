@@ -11,6 +11,7 @@ import net.minecraft.core.world.season.Seasons;
 import net.minecraft.core.world.type.WorldTypeOverworld;
 import net.minecraft.core.world.weather.Weather;
 import net.minecraft.core.world.wind.WindManagerGeneric;
+import teamport.moonmod.block.MoonModBlocks;
 
 public class WorldTypeMoon extends WorldTypeOverworld {
 
@@ -57,7 +58,7 @@ public class WorldTypeMoon extends WorldTypeOverworld {
 
 	@Override
 	public boolean isValidSpawn(World world, int x, int y, int z) {
-		return world.getBlockId(x, y -1, z) == Block.gravel.id;
+		return world.getBlockId(x, y -1, z) == MoonModBlocks.regolith.id;
 	}
 
 	@Override
@@ -67,7 +68,7 @@ public class WorldTypeMoon extends WorldTypeOverworld {
 
 	@Override
 	public int getDayNightCycleLengthTicks() {
-		return 708720;
+		return 24000;
 	}
 
 	@Override
@@ -98,13 +99,9 @@ public class WorldTypeMoon extends WorldTypeOverworld {
 
 	@Override
 	public float getCelestialAngle(World world, long tick, float partialTick) {
-		float dayProgress = this.getTimeOfDay(world, tick, partialTick);
-		dayProgress -= 0.25F;
-		float f2 = dayProgress;
-		dayProgress = 1.0F - (float)((Math.cos((double)dayProgress * Math.PI) + 1.0) / 2.0);
-		dayProgress = f2 + (dayProgress - f2) / 3.0F;
-		return dayProgress;
+		return 0.5F;
 	}
+
 
 	@Override
 	public Vec3d getFogColor(float timeOfDay, float partialTick) {

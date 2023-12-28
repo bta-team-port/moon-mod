@@ -6,18 +6,12 @@ import net.minecraft.core.world.type.WorldType;
 import net.minecraft.core.world.type.WorldTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import teamport.moonmod.world.BiomeProviderMoon;
-import teamport.moonmod.world.WorldTypeMoon;
-import teamport.moonmod.world.biome.MoonBiomes;
-import net.minecraft.client.sound.block.BlockSound;
-import net.minecraft.core.block.Block;
-import net.minecraft.core.block.material.Material;
-import net.minecraft.core.block.tag.BlockTags;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import teamport.moonmod.block.MoonModBlocks;
 import teamport.moonmod.item.MoonModItems;
-import turniplabs.halplibe.helper.BlockBuilder;
+import teamport.moonmod.world.BiomeProviderMoon;
+import teamport.moonmod.world.ModDimensions;
+import teamport.moonmod.world.WorldTypeMoon;
+import teamport.moonmod.world.biome.MoonBiomes;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
@@ -31,6 +25,7 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, RecipeEntry
   public void onInitialize() {
   new MoonModBlocks().initializeBlocks();
   new MoonModItems().initializeItems();
+	  ModDimensions.register();
       LOGGER.info("MoonMod has been initialized. Have fun, brave astronaut!");
   }
 
@@ -53,6 +48,6 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, RecipeEntry
 	public void onPreLaunch() {
 		new MoonBiomes().initializeBiomes();
 		BiomeProviderMoon.init();
-		MOON_WORLD = WorldTypes.register("moonmod.worldtype.moon", new WorldTypeMoon("moonmod.worldtype.moon"));
+		MOON_WORLD = WorldTypes.register(MoonMod.MOD_ID+":moon", new WorldTypeMoon("moonmod.worldtype.moon"));
 	}
 }
