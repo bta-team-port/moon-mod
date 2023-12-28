@@ -6,14 +6,26 @@ import net.minecraft.core.world.type.WorldType;
 import net.minecraft.core.world.type.WorldTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import teamport.moonmod.block.MoonModBlocks;
-import teamport.moonmod.item.MoonModItems;
 import teamport.moonmod.world.BiomeProviderMoon;
 import teamport.moonmod.world.ModDimensions;
 import teamport.moonmod.world.WorldTypeMoon;
 import teamport.moonmod.world.biome.MoonBiomes;
+import teamport.moonmod.entity.EntityUFO;
+import teamport.moonmod.entity.render.UFOModel;
+import teamport.moonmod.entity.render.UFORenderer;
+import teamport.moonmod.block.MoonModBlocks;
+import teamport.moonmod.item.MoonModItems;
+import net.minecraft.client.sound.block.BlockSound;
+import net.minecraft.core.block.Block;
+import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.tag.BlockTags;
+import teamport.moonmod.block.MoonModBlocks;
+import teamport.moonmod.item.MoonModItems;
+import turniplabs.halplibe.helper.BlockBuilder;
+import turniplabs.halplibe.helper.EntityHelper;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
+import useless.dragonfly.helper.ModelHelper;
 
 
 public class MoonMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint, PreLaunchEntrypoint {
@@ -23,9 +35,14 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, RecipeEntry
 
   @Override
   public void onInitialize() {
-  new MoonModBlocks().initializeBlocks();
-  new MoonModItems().initializeItems();
-	  ModDimensions.register();
+	  new MoonModBlocks().initializeBlocks();
+	  new MoonModItems().initializeItems();
+
+	  EntityHelper.createEntity(EntityUFO.class,
+		  new UFORenderer(ModelHelper.getOrCreateEntityModel(MOD_ID, "entity/ufo.json", UFOModel.class)),
+		  300,
+		  "UFO");
+
       LOGGER.info("MoonMod has been initialized. Have fun, brave astronaut!");
   }
 
