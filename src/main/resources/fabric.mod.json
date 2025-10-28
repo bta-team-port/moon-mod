@@ -1,29 +1,12 @@
 {
 	"schemaVersion": 1,
-	"id": "aether",
+	"id": "moonmod",
 	"version": "${version}",
 
-	"name": "Better With Aether",
-	"description": "The legendary dimension is finally here for Better than Adventure! Not affiliated with the original Aether team. Aether music by Emile van Krieken, check out at https://emilevankrieken.bandcamp.com/",
+	"name": "Moon Mod",
+	"description": "A remake and port of Sutr90's Moon Mod!",
 	"authors": [
-		"LukeisStuff",
-		"jonkadelic",
-		"Mak",
-		"Useless",
-		"CantComplain",
-		"MartinSVK12",
-		"Cookie Cakes",
-		"Kheprep",
-		"azurelmao",
-		"ToufouMaster",
-		"bagu_chan",
-		"Redart15",
-		"Slainlight",
-		"Telvarost",
-		"Tocinin",
-		"Klyxlik",
-		"big sir",
-		"rin"
+		"LukeisStuff"
 	],
 
 	"icon": "icon.png",
@@ -33,7 +16,7 @@
 		"sources": ""
 	},
 
-	"license": "LGPL-3.0",
+	"license": "CC0-1.0",
 	"environment": "*",
 
 	"entrypoints": {
@@ -41,10 +24,10 @@
 		"beforeGameStart": ["teamport.moonmod.MoonMod"],
 		"afterGameStart": ["teamport.moonmod.MoonMod"],
 		"client": ["teamport.moonmod.MoonClient"],
-		"beforeClientStart": ["teamport.moonmod.MoonMod"],
-		"afterClientStart": ["teamport.moonmod.MoonMod"],
-		"initModels": ["teamport.moonmod.MoonMod"],
-		"recipesReady": ["teamport.moonmod.MoonMod"],
+		"beforeClientStart": ["teamport.moonmod.MoonClient"],
+		"afterClientStart": ["teamport.moonmod.MoonClient"],
+		"initModels": ["teamport.moonmod.MoonModels"],
+		"recipesReady": ["teamport.moonmod.MoonRecipes"],
 		"server": ["teamport.moonmod.MoonServer"]
 	},
 
@@ -52,10 +35,7 @@
 
 	"depends": {
 		"fabricloader": ">=0.15.5",
-		"catalyst-effects": ">=2.3.0",
-		"catalyst-core": ">=2.2.0",
-		"halplibe": ">=5.3.1",
-		"uselessnumerical": ">=1.0.3"
+		"halplibe": ">=5.3.1"
 	},
 
 	"suggests": {}
