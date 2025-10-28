@@ -1,16 +1,9 @@
-{
+  {
   "required": true,
   "minVersion": "0.8",
   "package": "teamport.moonmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EntityLivingMixin",
-    "EntityPlayerMixin",
-    "OxygenBarComponentMixin",
-    "RenderGlobalMixin",
-    "WorldMixin",
-    "block.BlockLampMixin",
-    "block.BlockTorchMixin"
   ],
   "client": [
   ],

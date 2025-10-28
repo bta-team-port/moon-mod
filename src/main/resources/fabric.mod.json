@@ -1,58 +1,62 @@
 {
-  "schemaVersion": 1,
-  "id": "moonmod",
-  "version": "${version}",
+	"schemaVersion": 1,
+	"id": "aether",
+	"version": "${version}",
 
-  "name": "MoonMod",
-  "description": "A remake and port of Sutr90's Moon Mod!",
-  "authors": [
-    "BTA Team Port",
-		"Sutr90 (Original Dev)"
-  ],
-	"contributors": [
-		"Lexal (CosmicCraft code)",
-		"UselessBullets (CosmicCraft code)"
+	"name": "Better With Aether",
+	"description": "The legendary dimension is finally here for Better than Adventure! Not affiliated with the original Aether team. Aether music by Emile van Krieken, check out at https://emilevankrieken.bandcamp.com/",
+	"authors": [
+		"LukeisStuff",
+		"jonkadelic",
+		"Mak",
+		"Useless",
+		"CantComplain",
+		"MartinSVK12",
+		"Cookie Cakes",
+		"Kheprep",
+		"azurelmao",
+		"ToufouMaster",
+		"bagu_chan",
+		"Redart15",
+		"Slainlight",
+		"Telvarost",
+		"Tocinin",
+		"Klyxlik",
+		"big sir",
+		"rin"
 	],
-	"contact": {
-    "homepage": "",
-    "sources": ""
-  },
-
-  "license": "CC0-1.0",
 
 	"icon": "icon.png",
 
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "teamport.moonmod.MoonMod"
-    ],
-		"beforeGameStart": [
-			"teamport.moonmod.MoonMod"
-		],
-		"afterGameStart": [
-			"teamport.moonmod.MoonMod"
-		],
-		"beforeClientStart": [
-			"teamport.moonmod.MoonMod"
-		],
-		"afterClientStart": [
-			"teamport.moonmod.MoonMod"
-		],
-		"recipesReady": [
-			"teamport.moonmod.MMRecipes"
-		],
-		"terrain-api": [
-			"teamport.moonmod.compat.terrainapi.TerrainAPIPlugin"
-		]
-  },
-  "mixins": [
-		"moonmod.mixins.json"
-  ],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
 
-  "depends": {
-    "fabricloader": ">=0.13.3"
-  },
-  "suggests": {
-  }
+	"license": "LGPL-3.0",
+	"environment": "*",
+
+	"entrypoints": {
+		"main": ["teamport.moonmod.MoonMod"],
+		"beforeGameStart": ["teamport.moonmod.MoonMod"],
+		"afterGameStart": ["teamport.moonmod.MoonMod"],
+		"client": ["teamport.moonmod.MoonClient"],
+		"beforeClientStart": ["teamport.moonmod.MoonMod"],
+		"afterClientStart": ["teamport.moonmod.MoonMod"],
+		"initModels": ["teamport.moonmod.MoonMod"],
+		"recipesReady": ["teamport.moonmod.MoonMod"],
+		"server": ["teamport.moonmod.MoonServer"]
+	},
+
+	"mixins": ["moonmod.mixins.json"],
+
+	"depends": {
+		"fabricloader": ">=0.15.5",
+		"catalyst-effects": ">=2.3.0",
+		"catalyst-core": ">=2.2.0",
+		"halplibe": ">=5.3.1",
+		"uselessnumerical": ">=1.0.3"
+	},
+
+	"suggests": {}
 }
