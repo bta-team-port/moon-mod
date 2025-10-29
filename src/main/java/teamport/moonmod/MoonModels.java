@@ -8,7 +8,11 @@ import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import teamport.moonmod.blocks.BlockModelWoolReinforced;
 import teamport.moonmod.blocks.MoonBlocks;
+import teamport.moonmod.entity.MobRendererUFO;
+import teamport.moonmod.entity.MobUFO;
+import teamport.moonmod.entity.ModelUFO;
 import teamport.moonmod.items.MoonItems;
+import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
 
 import static net.minecraft.client.render.block.model.BlockModelStandard.BLOCK_TEXTURES;
@@ -52,7 +56,7 @@ public class MoonModels implements ModelEntrypoint {
 
 	@Override
 	public void initEntityModels(EntityRenderDispatcher dispatcher) {
-
+		ModelHelper.setEntityModel(MobUFO.class, () -> new MobRendererUFO(new ModelUFO(), 0.5F));
 	}
 
 	@Override

@@ -31,15 +31,15 @@ public class MobUFO extends MobAnimal {
 		return "mob.cow";
 	}
 
-	protected String getHurtSound() {
+	public String getHurtSound() {
 		return "mob.cowhurt";
 	}
 
-	protected String getDeathSound() {
+	public String getDeathSound() {
 		return "mob.cowhurt";
 	}
 
-	protected float getSoundVolume() {
+	public float getSoundVolume() {
 		return 0.4F;
 	}
 

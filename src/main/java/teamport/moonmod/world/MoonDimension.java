@@ -45,17 +45,17 @@ public class MoonDimension {
 		MOON = new Dimension("moon", Dimension.OVERWORLD, 0.25f, MoonBlocks.PORTAL_MOON, MoonWorldTypes.MOON_DEFAULT);
 		Dimension.registerDimension(MoonDimensionID, MOON);
 
-		List<Integer> AETHER_BLACKLIST = getDimensionBlacklist(MOON);
-		AETHER_BLACKLIST.add(Blocks.FIRE.id());
-		AETHER_BLACKLIST.add(Blocks.BRAZIER_ACTIVE.id());
+		List<Integer> MOON_BLACKLIST = getDimensionBlacklist(MOON);
+		MOON_BLACKLIST.add(Blocks.FIRE.id());
+		MOON_BLACKLIST.add(Blocks.BRAZIER_ACTIVE.id());
 
-		AETHER_BLACKLIST.add(Blocks.FLUID_LAVA_FLOWING.id());
-		AETHER_BLACKLIST.add(Blocks.FLUID_LAVA_STILL.id());
-		AETHER_BLACKLIST.add(Blocks.TORCH_COAL.id());
-		AETHER_BLACKLIST.add(Blocks.PUMPKIN_CARVED_ACTIVE.id());
-		AETHER_BLACKLIST.add(Blocks.COBBLE_NETHERRACK_IGNEOUS.id());
-		AETHER_BLACKLIST.add(Blocks.PUMICE_WET.id());
-		AETHER_BLACKLIST.add(Blocks.PORTAL_NETHER.id());
+		MOON_BLACKLIST.add(Blocks.FLUID_LAVA_FLOWING.id());
+		MOON_BLACKLIST.add(Blocks.FLUID_LAVA_STILL.id());
+		MOON_BLACKLIST.add(Blocks.TORCH_COAL.id());
+		MOON_BLACKLIST.add(Blocks.PUMPKIN_CARVED_ACTIVE.id());
+		MOON_BLACKLIST.add(Blocks.COBBLE_NETHERRACK_IGNEOUS.id());
+		MOON_BLACKLIST.add(Blocks.PUMICE_WET.id());
+		MOON_BLACKLIST.add(Blocks.PORTAL_NETHER.id());
 	}
 
 }

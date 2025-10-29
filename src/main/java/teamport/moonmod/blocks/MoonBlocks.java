@@ -45,13 +45,13 @@ public class MoonBlocks implements BlockInitEntrypoint {
 			.setResistance(-1.0f)
 			.setLuminance(15)
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
-			.build("portal.moon", "portal_aether", blockID("PORTAL_AETHER"), b -> new BlockLogicPortalMoon(b, MoonDimension.MOON, MoonBlocks.CHEESE, Blocks.FIRE));
+			.build("portal.moon", "portal_moon", blockID("PORTAL_MOON"), b -> new BlockLogicPortalMoon(b, MoonDimension.MOON, MoonBlocks.CHEESE, Blocks.FIRE));
 
 		REGOLITH = new BlockBuilder(MOD_ID)
 			.setBlockSound(BlockSounds.GRAVEL)
 			.setHardness(0.5f)
 			.setResistance(0.5f)
-			.setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
+			.setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.FIREFLIES_CAN_SPAWN)
 			.build("regolith", "regolith", blockID("REGOLITH"), b -> new BlockLogic(b, Material.dirt));
 
 		CHEESE = new BlockBuilder(MOD_ID)

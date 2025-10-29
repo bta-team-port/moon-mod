@@ -1,6 +1,5 @@
 package teamport.moonmod.world;
 
-import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.world.type.WorldType;
 import net.minecraft.core.world.type.WorldTypes;
 import teamport.moonmod.world.chunk.skyblock.WorldTypeMoonSkyblock;
@@ -11,11 +10,6 @@ public abstract class MoonWorldTypes {
 	public static WorldType MOON_RETRO;
 
 	public MoonWorldTypes() {
-	}
-
-	public static WorldType register(String key, WorldType worldType) {
-		Registries.WORLD_TYPES.register(key, worldType);
-		return worldType;
 	}
 
 	private static boolean hasInit = false;
@@ -29,21 +23,19 @@ public abstract class MoonWorldTypes {
 	}
 
 	public static void initializeWorldTypes() {
-		MOON_DEFAULT = WorldTypes.register("moon:moon.default", new WorldTypeMoon
+		MOON_DEFAULT = WorldTypes.register("moonmod:moon.default", new WorldTypeMoon
 			(WorldTypeMoon.defaultProperties("worldtype.moon.default")
-				.bounds(0, 127, 0)
-				.portalBounds(32, 96)));
+				.bounds(0, 255, 0)));
 
 
-		MOON_SKYBLOCK = WorldTypes.register("moon:moon.skyblock", new WorldTypeMoonSkyblock
+		MOON_SKYBLOCK = WorldTypes.register("moonmod:moon.skyblock", new WorldTypeMoonSkyblock
 			(WorldTypeMoon.defaultProperties("worldtype.moon.skyblock")
 				.bounds(0, 127, 0)));
 
 
-		MOON_RETRO = WorldTypes.register("moon:moon.retro", new WorldTypeMoon
+		MOON_RETRO = WorldTypes.register("moonmod:moon.retro", new WorldTypeMoon
 			(WorldTypeMoon.defaultProperties("worldtype.moon.retro")
 				.bounds(0, 127, 0)
-				.portalBounds(32, 96)
 				.setRetro()));
 	}
 }

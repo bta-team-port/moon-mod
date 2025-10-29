@@ -52,8 +52,10 @@ public class MoonItems {
 		CHEESE = new ItemBuilder(MOD_ID)
 			.build(new ItemFood("cheese", itemKey("cheese"), itemID("CHEESE"), 3, 4, false, 4));
 
+
 		SCREWDRIVER_SONIC = new ItemBuilder(MOD_ID)
-			.build(new Item("screwdriver.sonic", itemKey("screwdriver_sonic"), itemID("SCREWDRIVER_SONIC")));
+			.build(new Item("screwdriver.sonic", itemKey("screwdriver_sonic"), itemID("SCREWDRIVER_SONIC")).setMaxStackSize(1).setMaxDamage(63));
+
 
 		ARMOR_HELMET_MOON = new ItemBuilder(MOD_ID)
 			.build(new ItemArmor("armor.helmet.moon", itemKey("armor_helmet_moon"), itemID("ARMOR_HELMET_MOON"), MOON, 3));

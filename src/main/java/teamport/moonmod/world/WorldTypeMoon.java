@@ -1,6 +1,7 @@
 package teamport.moonmod.world;
 
 import net.minecraft.core.Global;
+import net.minecraft.core.block.Blocks;
 import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.biome.provider.BiomeProvider;
@@ -19,10 +20,27 @@ public class WorldTypeMoon extends WorldType {
 	public static WorldType.Properties defaultProperties(String translationKey) {
 		return Properties.of(translationKey)
 			.defaultWeather(Weathers.OVERWORLD_CLEAR)
+			.brightnessRamp(createLightRamp())
 			.seasonConfig(null)
 			.dayNightCycleTicks(Global.DAY_LENGTH_TICKS)
 			.oceanBlock(null)
-			.fillerBlock(MoonBlocks.REGOLITH);
+			.fillerBlock(Blocks.STONE);
+	}
+
+	public static float[] createLightRamp() {
+		float[] brightnessRamp = new float[32];
+		float f = 0.05F;
+
+		for(int i = 0; i <= 31; ++i) {
+			float f1 = 1.0F - (float)i / 15.0F;
+			if (i > 15) {
+				f1 = 0.0F;
+			}
+
+			brightnessRamp[i] = (1.0F - f1) / (f1 * 3.0F + 1.0F) * (1.0F - f) + f;
+		}
+
+		return brightnessRamp;
 	}
 
 	@Override
@@ -37,6 +55,10 @@ public class WorldTypeMoon extends WorldType {
 
 	@Override
 	public int getOceanY() {
+		return 0;
+	}
+
+	public int getOceanBlockId() {
 		return 0;
 	}
 

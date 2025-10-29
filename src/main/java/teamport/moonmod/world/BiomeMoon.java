@@ -3,12 +3,9 @@ package teamport.moonmod.world;
 import net.minecraft.core.entity.SpawnListEntry;
 import net.minecraft.core.entity.animal.MobFireflyCluster;
 import net.minecraft.core.world.biome.Biome;
-import net.minecraft.core.world.generate.feature.WorldFeature;
 import net.minecraft.core.world.weather.Weathers;
 import teamport.moonmod.blocks.MoonBlocks;
 import teamport.moonmod.entity.MobUFO;
-
-import java.util.Random;
 
 public class BiomeMoon extends Biome {
 	public BiomeMoon(String key) {
@@ -29,10 +26,7 @@ public class BiomeMoon extends Biome {
 	}
 
 	public int getSkyColor(float temperature) {
-		return 0xff000000;
+		return 0xc0c0ff;
 	}
 
-	public WorldFeature getRandomWorldGenForTrees(Random random) {
-		return null;
-	}
 }

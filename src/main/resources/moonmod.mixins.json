@@ -4,6 +4,7 @@
   "package": "teamport.moonmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MoonWorldTypesMixin"
   ],
   "client": [
   ],

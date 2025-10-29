@@ -14,15 +14,12 @@ public class MoonConfig {
 
 	private static TomlConfigHandler cfg;
 
-	public static final Object CONFIGURATION_LOCK = new Object();
-
-
 	public static final String GeneralCategory = "General";
 
 	public static int DIMENSION = 6;
 
-	private static int BLOCK_ID_STARTING_FROM = 10000;
-	private static int ITEM_ID_STARTING_FROM = 26000;
+	private static int BLOCK_ID_STARTING_FROM = 7900;
+	private static int ITEM_ID_STARTING_FROM = 16600;
 
 	public static int currentBlockID;
 	public static int currentItemID;
