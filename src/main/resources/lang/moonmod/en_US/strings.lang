@@ -1,9 +1,6 @@
 moonmod.worldtype.moon.name=The Moon
 moonmod.worldtype.moon.desc=A barren and flat satellite far away from home.
 
-moonmod.biome.moon=Lunar Plains
+biome.moon.plains=Lunar Plains
 
 dimension.moon.name=The Moon
-
-moonmod.tent.build.fail=Cannot build a tent here.
-moonmod.tent.destroy.fail=Cannot destroy tent.

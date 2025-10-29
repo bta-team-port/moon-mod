@@ -7,6 +7,7 @@
     "MoonWorldTypesMixin"
   ],
   "client": [
+    "MoonLoadingScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
