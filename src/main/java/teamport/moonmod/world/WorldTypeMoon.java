@@ -12,7 +12,7 @@ import teamport.moonmod.blocks.MoonBlocks;
 import teamport.moonmod.world.chunk.BiomeProviderMoon;
 import teamport.moonmod.world.chunk.ChunkGeneratorMoon;
 
-public class WorldTypeMoon extends WorldType {
+public class WorldTypeMoon extends WorldType implements ISpace {
 	public WorldTypeMoon(WorldType.Properties properties) {
 		super(properties);
 	}
@@ -31,8 +31,8 @@ public class WorldTypeMoon extends WorldType {
 		float[] brightnessRamp = new float[32];
 		float f = 0.05F;
 
-		for(int i = 0; i <= 31; ++i) {
-			float f1 = 1.0F - (float)i / 15.0F;
+		for (int i = 0; i <= 31; ++i) {
+			float f1 = 1.0F - (float) i / 15.0F;
 			if (i > 15) {
 				f1 = 0.0F;
 			}
@@ -74,7 +74,7 @@ public class WorldTypeMoon extends WorldType {
 
 	@Override
 	public boolean isValidSpawn(World world, int x, int y, int z) {
-		return world.getBlockId(x, y -1, z) == MoonBlocks.REGOLITH.id();
+		return world.getBlockId(x, y - 1, z) == MoonBlocks.REGOLITH.id();
 	}
 
 	@Override
@@ -100,9 +100,9 @@ public class WorldTypeMoon extends WorldType {
 		}
 		float weatherOffset = 0.0f;
 		if (world.getCurrentWeather() != null) {
-			weatherOffset = (float)world.getCurrentWeather().subtractLightLevel * world.weatherManager.getWeatherIntensity() * world.weatherManager.getWeatherPower();
+			weatherOffset = (float) world.getCurrentWeather().subtractLightLevel * world.weatherManager.getWeatherIntensity() * world.weatherManager.getWeatherPower();
 		}
-		if ((subtracted = (int)(f2 * (11.0f - weatherOffset) + weatherOffset)) > 8) {
+		if ((subtracted = (int) (f2 * (11.0f - weatherOffset) + weatherOffset)) > 8) {
 			subtracted = 12;
 		}
 		return subtracted;
@@ -113,29 +113,29 @@ public class WorldTypeMoon extends WorldType {
 		return 0.5F;
 	}
 
-//	@Override
-//	public float getGravityScalar() {
-//		return 0.22F;
-//	}
-//
-//	@Override
-//	public boolean suffocate() {
-//		return true;
-//	}
-//
-//	@Override
-//	public String getCelestialMoonTexture() {
-//		return "/terrain/earth.png";
-//	}
-//
-//	@Override
-//	public String getCelestialSunTexture() {
-//		return "/terrain/sun.png";
-//	}
-//
-//	@Override
-//	public float getStarBrightness(World world) {
-//		return 1.0F;
-//	}
+	@Override
+	public float getGravityScalar() {
+		return 0.166F;
+	}
+
+	@Override
+	public boolean suffocate() {
+		return true;
+	}
+
+	@Override
+	public String getCelestialMoonTexture() {
+		return "/assets/moonmod/textures/terrain/earth.png";
+	}
+
+	@Override
+	public String getCelestialSunTexture() {
+		return "/assets/minecraft/textures/terrain/sun.png";
+	}
+
+	@Override
+	public float getStarBrightness(World world) {
+		return 1.0F;
+	}
 }
 

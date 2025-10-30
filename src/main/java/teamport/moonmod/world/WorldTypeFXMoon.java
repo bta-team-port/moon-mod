@@ -36,7 +36,7 @@ public class WorldTypeFXMoon extends WorldTypeFX {
 
 	@Override
 	public float[] getSunriseColor(float timeOfDay, float partialTick) {
-		return new float[] {0.0f, 0.0f, 0.0f, 0.0f};
+		return new float[]{0.0f, 0.0f, 0.0f, 0.0f};
 	}
 
 	@Override
@@ -44,17 +44,15 @@ public class WorldTypeFXMoon extends WorldTypeFX {
 		float timeOfDay = MathHelper.clamp(MathHelper.cos(celestialAngle * 3.1415927F * 2.0F) * 2.0F + 0.5F, 0.0F, 1.0F);
 		int i = 0;
 		float f2 = MathHelper.cos(timeOfDay * 3.141593F * 2.0F) * 2.0F + 0.5F;
-		if(f2 < 0.0F)
-		{
+		if (f2 < 0.0F) {
 			f2 = 0.0F;
 		}
-		if(f2 > 1.0F)
-		{
+		if (f2 > 1.0F) {
 			f2 = 1.0F;
 		}
-		float f3 = (float)(i >> 16 & 0xff) / 255F;
-		float f4 = (float)(i >> 8 & 0xff) / 255F;
-		float f5 = (float)(i & 0xff) / 255F;
+		float f3 = (float) (i >> 16 & 0xff) / 255F;
+		float f4 = (float) (i >> 8 & 0xff) / 255F;
+		float f5 = (float) (i & 0xff) / 255F;
 		f3 *= f2 * 0.94F + 0.06F;
 		f4 *= f2 * 0.94F + 0.06F;
 		f5 *= f2 * 0.91F + 0.09F;

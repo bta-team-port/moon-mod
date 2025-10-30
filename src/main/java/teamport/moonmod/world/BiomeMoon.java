@@ -10,7 +10,8 @@ import teamport.moonmod.entity.MobUFO;
 public class BiomeMoon extends Biome {
 	public BiomeMoon(String key) {
 		super(key);
-		setColor(353825);
+		setColor(0);
+		setBlockedWeathers(Weathers.WEATHERS);
 		setTopBlock(MoonBlocks.REGOLITH.id());
 		setFillerBlock(MoonBlocks.REGOLITH.id());
 		setBlockedWeathers(Weathers.OVERWORLD_RAIN, Weathers.OVERWORLD_SNOW, Weathers.OVERWORLD_STORM);
@@ -26,7 +27,7 @@ public class BiomeMoon extends Biome {
 	}
 
 	public int getSkyColor(float temperature) {
-		return 0xc0c0ff;
+		return 0;
 	}
 
 }

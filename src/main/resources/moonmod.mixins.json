@@ -4,10 +4,14 @@
   "package": "teamport.moonmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MoonWorldTypesMixin"
+    "EntityMoonSuitMixin",
+    "MobGravityMixin",
+    "MoonWorldTypesMixin",
+    "WorldStarBrightnessMixin"
   ],
   "client": [
-    "MoonLoadingScreenMixin"
+    "MoonLoadingScreenMixin",
+    "RenderGlobalEarthMixin"
   ],
   "injectors": {
     "defaultRequire": 1

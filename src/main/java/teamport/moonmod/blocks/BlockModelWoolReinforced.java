@@ -26,7 +26,7 @@ public class BlockModelWoolReinforced<T extends BlockLogic> extends BlockModelSt
 
 	static {
 		DyeColor c;
-		for(Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("moonmod:block/wool_reinforced/" + c.colorID)) {
+		for (Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("moonmod:block/wool_reinforced/" + c.colorID)) {
 			c = var0.next();
 		}
 
