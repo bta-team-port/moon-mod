@@ -50,9 +50,9 @@ public class WorldTypeFXMoon extends WorldTypeFX {
 		if (f2 > 1.0F) {
 			f2 = 1.0F;
 		}
-		float f3 = (float) (i >> 16 & 0xff) / 255F;
-		float f4 = (float) (i >> 8 & 0xff) / 255F;
-		float f5 = (float) (i & 0xff) / 255F;
+		float f3 = (float) (0) / 255F;
+		float f4 = (float) (0) / 255F;
+		float f5 = (float) (0) / 255F;
 		f3 *= f2 * 0.94F + 0.06F;
 		f4 *= f2 * 0.94F + 0.06F;
 		f5 *= f2 * 0.91F + 0.09F;

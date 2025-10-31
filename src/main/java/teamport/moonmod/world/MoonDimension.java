@@ -49,6 +49,8 @@ public class MoonDimension {
 		MOON_BLACKLIST.add(Blocks.FIRE.id());
 		MOON_BLACKLIST.add(Blocks.BRAZIER_ACTIVE.id());
 
+		MOON_BLACKLIST.add(Blocks.FLUID_WATER_FLOWING.id());
+		MOON_BLACKLIST.add(Blocks.FLUID_WATER_STILL.id());
 		MOON_BLACKLIST.add(Blocks.FLUID_LAVA_FLOWING.id());
 		MOON_BLACKLIST.add(Blocks.FLUID_LAVA_STILL.id());
 		MOON_BLACKLIST.add(Blocks.TORCH_COAL.id());
@@ -56,6 +58,7 @@ public class MoonDimension {
 		MOON_BLACKLIST.add(Blocks.COBBLE_NETHERRACK_IGNEOUS.id());
 		MOON_BLACKLIST.add(Blocks.PUMICE_WET.id());
 		MOON_BLACKLIST.add(Blocks.PORTAL_NETHER.id());
+
 	}
 
 }

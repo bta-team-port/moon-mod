@@ -4,7 +4,12 @@
   "package": "teamport.moonmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BlockBlacklistMixin",
+    "BlockBrazierBlacklistMixin",
+    "BlockFireBlacklistMixin",
+    "BucketMixin",
     "EntityMoonSuitMixin",
+    "FireStrikerBlacklistMixin",
     "MenuCreativeAddBlocksMixin",
     "MobGravityMixin",
     "MoonWorldTypesMixin",

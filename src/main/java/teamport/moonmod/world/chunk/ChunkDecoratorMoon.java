@@ -38,7 +38,6 @@ public class ChunkDecoratorMoon implements ChunkDecorator {
 		int generateZ;
 
 
-
 		if (rand.nextInt(12) == 1) {
 			generateX = x + rand.nextInt(16);
 			generateY = rangeY / 2;
@@ -46,42 +45,42 @@ public class ChunkDecoratorMoon implements ChunkDecorator {
 			(new WorldFeatureCrater()).place(this.world, rand, generateX, generateY, generateZ);
 		}
 
-		for (j4 = 0; (float) j4 < 5.0F * oreHeightModifier; ++j4) {
+		for (j4 = 0; (float) j4 < 7.5F * oreHeightModifier; ++j4) {
 			generateX = x + rand.nextInt(16);
 			generateY = minY + rand.nextInt(rangeY / 2);
 			generateZ = z + rand.nextInt(16);
 			(new WorldFeatureOre(MoonBlocks.CHEESE.id(), 8)).place(this.world, rand, generateX, generateY, generateZ);
 		}
 
-		for (j4 = 0; (float) j4 < 20.0F * oreHeightModifier; ++j4) {
+		for (j4 = 0; (float) j4 < 30.0F * oreHeightModifier; ++j4) {
 			generateX = x + rand.nextInt(16);
 			generateY = minY + rand.nextInt(rangeY);
 			generateZ = z + rand.nextInt(16);
 			(new WorldFeatureOre(BlockLogicOreCoal.variantMap, 16)).place(this.world, rand, generateX, generateY, generateZ);
 		}
 
-		for (j4 = 0; (float) j4 < 20.0F * oreHeightModifier; ++j4) {
+		for (j4 = 0; (float) j4 < 30.0F * oreHeightModifier; ++j4) {
 			generateX = x + rand.nextInt(16);
 			generateY = minY + rand.nextInt(rangeY / 2);
 			generateZ = z + rand.nextInt(16);
 			(new WorldFeatureOre(BlockLogicOreIron.variantMap, 8)).place(this.world, rand, generateX, generateY, generateZ);
 		}
 
-		for (j4 = 0; (float) j4 < 2.0F * oreHeightModifier; ++j4) {
+		for (j4 = 0; (float) j4 < 3.0F * oreHeightModifier; ++j4) {
 			generateX = x + rand.nextInt(16);
 			generateY = minY + rand.nextInt(rangeY / 4);
 			generateZ = z + rand.nextInt(16);
 			(new WorldFeatureOre(BlockLogicOreGold.variantMap, 8)).place(this.world, rand, generateX, generateY, generateZ);
 		}
 
-		for (j4 = 0; (float) j4 < 8.0F * oreHeightModifier; ++j4) {
+		for (j4 = 0; (float) j4 < 12.0F * oreHeightModifier; ++j4) {
 			generateX = x + rand.nextInt(16);
 			generateY = minY + rand.nextInt(rangeY / 8);
 			generateZ = z + rand.nextInt(16);
 			(new WorldFeatureOre(BlockLogicOreRedstone.variantMap, 7)).place(this.world, rand, generateX, generateY, generateZ);
 		}
 
-		for (j4 = 0; (float) j4 < oreHeightModifier; ++j4) {
+		for (j4 = 0; (float) j4 < 1.5f * oreHeightModifier; ++j4) {
 			generateX = x + rand.nextInt(16);
 			generateY = minY + rand.nextInt(rangeY / 8);
 			generateZ = z + rand.nextInt(16);
