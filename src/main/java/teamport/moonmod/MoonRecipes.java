@@ -1,5 +1,6 @@
 package teamport.moonmod;
 
+import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.data.registry.recipe.RecipeSymbol;
@@ -22,6 +23,13 @@ import static teamport.moonmod.MoonMod.MOD_ID;
 public class MoonRecipes implements RecipeEntrypoint {
 	@Override
 	public void onRecipesReady() {
+
+		RecipeBuilder.Trommel(MOD_ID)
+			.setInput(MoonBlocks.REGOLITH)
+			.addEntry(new WeightedRandomLootObject(Items.ORE_RAW_IRON.getDefaultStack(), 2, 4), 15.0)
+			.addEntry(new WeightedRandomLootObject(Items.DUST_REDSTONE.getDefaultStack(), 2, 4), 20.0)
+			.addEntry(new WeightedRandomLootObject(Items.AMMO_PEBBLE.getDefaultStack(), 1, 5), 25.0)
+			.create("trommel_regolith");
 
 		RecipeBuilder.Shaped(MOD_ID)
 			.setShape("GGG", "GRG", "GIG")
