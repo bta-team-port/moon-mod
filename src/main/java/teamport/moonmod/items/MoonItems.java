@@ -54,7 +54,7 @@ public class MoonItems {
 
 
 		SCREWDRIVER_SONIC = new ItemBuilder(MOD_ID)
-			.build(new Item("screwdriver.sonic", itemKey("screwdriver_sonic"), itemID("SCREWDRIVER_SONIC")).setMaxStackSize(1).setMaxDamage(63));
+			.build(new ItemScrewdriver("screwdriver.sonic", itemKey("screwdriver_sonic"), itemID("SCREWDRIVER_SONIC")).setMaxStackSize(1).setMaxDamage(63));
 
 
 		ARMOR_HELMET_MOON = new ItemBuilder(MOD_ID)

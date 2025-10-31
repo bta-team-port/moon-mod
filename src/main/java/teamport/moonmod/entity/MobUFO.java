@@ -3,6 +3,7 @@ package teamport.moonmod.entity;
 import com.mojang.nbt.tags.CompoundTag;
 import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.block.Blocks;
+import net.minecraft.core.entity.animal.Creature;
 import net.minecraft.core.entity.animal.MobAnimal;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.collection.NamespaceID;
@@ -12,12 +13,12 @@ import org.jetbrains.annotations.NotNull;
 import teamport.moonmod.blocks.MoonBlocks;
 import teamport.moonmod.items.MoonItems;
 
-public class MobUFO extends MobAnimal {
+public class MobUFO extends MobAnimal implements Creature {
 
 	public MobUFO(World world) {
 		super(world);
 		this.textureIdentifier = NamespaceID.getPermanent("moonmod", "ufo");
-		this.setSize(0.5F, 0.5F);
+		this.setSize(0.5F, 1.0F);
 		this.mobDrops.add(new WeightedRandomLootObject(MoonItems.CHEESE.getDefaultStack(), 1, 2));
 	}
 
@@ -49,16 +50,20 @@ public class MobUFO extends MobAnimal {
 		super.readAdditionalSaveData(tag);
 	}
 
+	public int getAmbientSoundInterval() {
+		return 480 / 2;
+	}
+
 	public String getLivingSound() {
-		return "mob.cow";
+		return "moonmod:alien.idle";
 	}
 
 	public String getHurtSound() {
-		return "mob.cowhurt";
+		return "moonmod:alien.hurt";
 	}
 
 	public String getDeathSound() {
-		return "mob.cowhurt";
+		return "moonmod:alien.death";
 	}
 
 	public float getSoundVolume() {

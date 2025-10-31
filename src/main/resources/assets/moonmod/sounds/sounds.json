@@ -1,0 +1,20 @@
+{
+  "alien.idle": {
+    "subtitle": "subtitles.alien.idle",
+    "sounds": [
+      "alien_idle.ogg"
+    ]
+  },
+  "alien.hurt": {
+    "subtitle": "subtitles.alien.hurt",
+    "sounds": [
+      "alien_hurt.ogg"
+    ]
+  },
+  "alien.death": {
+    "subtitle": "subtitles.alien.death",
+    "sounds": [
+      "alien_death.ogg"
+    ]
+  }
+}

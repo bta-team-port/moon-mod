@@ -12,6 +12,6 @@ public class BlockLogicPortalMoon extends BlockLogicPortal {
 	}
 
 	public DyeColor fromMetadata(int meta) {
-		return (meta & 8) == 0 ? DyeColor.LIGHT_BLUE : DyeColor.colorFromBlockMeta((meta & 240) >> 4);
+		return (meta & 8) == 0 ? DyeColor.SILVER : DyeColor.colorFromBlockMeta((meta & 240) >> 4);
 	}
 }
