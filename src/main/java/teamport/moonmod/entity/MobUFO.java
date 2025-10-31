@@ -30,6 +30,7 @@ public class MobUFO extends MobAnimal implements Creature {
 		return this.world.getBlockId(x, y - 1, z) == MoonBlocks.REGOLITH.id() ? 10.0F : this.world.getLightBrightness(x, y, z) - 0.5F;
 	}
 
+	@Override
 	public boolean canSpawnHere() {
 		int x = MathHelper.floor(this.x);
 		int y = MathHelper.floor(this.bb.minY);
@@ -38,7 +39,7 @@ public class MobUFO extends MobAnimal implements Creature {
 		if (Blocks.blocksList[id] == null) {
 			return false;
 		} else {
-			return id == MoonBlocks.REGOLITH.id() && super.canSpawnHere();
+			return id == MoonBlocks.REGOLITH.id();
 		}
 	}
 

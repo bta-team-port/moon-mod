@@ -5,8 +5,12 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.entity.particle.ParticleFirefly;
+import net.minecraft.client.gui.guidebook.mobs.MobInfoRegistry;
 import net.minecraft.client.render.worldtype.WorldTypeFXDispatcher;
 import net.minecraft.client.sound.SoundRepository;
+import net.minecraft.core.item.ItemStack;
+import teamport.moonmod.entity.MobUFO;
+import teamport.moonmod.items.MoonItems;
 import teamport.moonmod.world.MoonWorldTypes;
 import teamport.moonmod.world.WorldTypeFXMoon;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
@@ -32,6 +36,9 @@ public class MoonClient implements ClientModInitializer, ClientStartEntrypoint {
 
 	@Override
 	public void afterClientStart() {
+
+		MobInfoRegistry.register(MobUFO.class, "guidebook.section.mob.ufo.name", "guidebook.section.mob.ufo.desc",
+			10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(MoonItems.CHEESE), 1.0f, 1, 2)});
 
 		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_DEFAULT)
 			.setCloudHeight(-100.0f)

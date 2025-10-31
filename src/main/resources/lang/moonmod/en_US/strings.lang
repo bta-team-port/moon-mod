@@ -8,3 +8,6 @@ dimension.moon.name=The Moon
 subtitles.alien.idle=Alien chirps
 subtitles.alien.hurt=Alien hurt
 subtitles.alien.death=Alien death
+
+guidebook.section.mob.ufo.name=U.F.O
+guidebook.section.mob.ufo.desc=A quirky lifeform found commonly on the moon, emits a strange sound of joy.
