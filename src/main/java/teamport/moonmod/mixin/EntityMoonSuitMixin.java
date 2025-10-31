@@ -4,6 +4,7 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.Mob;
 import net.minecraft.core.entity.player.Player;
+import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,6 +36,9 @@ public abstract class EntityMoonSuitMixin {
 
 	@Shadow
 	public int airSupply;
+
+	@Shadow
+	public abstract boolean hurt(Entity attacker, int baseDamage, DamageType type);
 
 	@Unique
 	private boolean moonMod_hasSuit() {
@@ -73,8 +77,13 @@ public abstract class EntityMoonSuitMixin {
 		}
 
 		if (!moonMod_hasSuit() && (shouldSuffocate || cir.getReturnValue() && !living.canBreatheUnderwater()) && !(living instanceof MobUFO)) {
-			if (airSupply-- <= -20) airSupply = 0;
-
+			if (living.world.getWorldType() instanceof ISpace) {
+				--this.airSupply;
+				if (this.airSupply <= -20) {
+					this.airSupply = 0;
+					this.hurt(null, 4, DamageType.DROWN);
+				}
+			}
 			cir.setReturnValue(true);
 			return;
 		}
