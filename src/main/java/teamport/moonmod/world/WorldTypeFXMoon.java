@@ -10,7 +10,7 @@ import net.minecraft.core.world.type.WorldType;
 
 @Environment(EnvType.CLIENT)
 public class WorldTypeFXMoon extends WorldTypeFX {
-	public Float cloudHeight = null;
+	public Float cloudHeight = -100f;
 
 	public WorldTypeFXMoon(WorldType worldType) {
 		super(worldType);

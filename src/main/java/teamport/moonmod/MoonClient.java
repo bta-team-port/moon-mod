@@ -34,17 +34,17 @@ public class MoonClient implements ClientModInitializer, ClientStartEntrypoint {
 	public void afterClientStart() {
 
 		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_DEFAULT)
-			.setCloudHeight(0.0f)
+			.setCloudHeight(-100.0f)
 			.setHasAurora(false)
 			.setHasGround(true));
 
 		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_RETRO)
-			.setCloudHeight(0.0f)
+			.setCloudHeight(100.0f)
 			.setHasAurora(false)
 			.setHasGround(true));
 
 		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_SKYBLOCK)
-			.setCloudHeight(0.0f)
+			.setCloudHeight(100.0f)
 			.setHasAurora(false)
 			.setHasGround(true));
 	}

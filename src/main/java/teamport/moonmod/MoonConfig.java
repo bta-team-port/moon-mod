@@ -61,7 +61,6 @@ public class MoonConfig {
 			.addEntry("ITEM_ID_STARTING_FROM", ITEM_ID_STARTING_FROM);
 	}
 
-	// Useless Numerical will sort it out for us.
 	public static int itemID(String itemName) {
 		return currentItemID++;
 	}

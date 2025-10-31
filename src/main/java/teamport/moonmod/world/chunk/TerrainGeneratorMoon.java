@@ -4,7 +4,6 @@ import net.minecraft.core.block.Blocks;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.chunk.perlin.DensityGenerator;
 import net.minecraft.core.world.generate.chunk.perlin.TerrainGeneratorLerp;
-import net.minecraft.core.world.generate.chunk.perlin.overworld.DensityGeneratorOverworld;
 import net.minecraft.core.world.type.WorldType;
 
 public class TerrainGeneratorMoon extends TerrainGeneratorLerp {
@@ -16,7 +15,7 @@ public class TerrainGeneratorMoon extends TerrainGeneratorLerp {
 	}
 
 	public TerrainGeneratorMoon(World world) {
-		this(world, new DensityGeneratorOverworld(world));
+		this(world, new DensityGeneratorMoon(world));
 	}
 
 	protected int getBlockAt(int x, int y, int z, double density) {

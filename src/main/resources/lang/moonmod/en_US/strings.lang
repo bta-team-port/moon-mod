@@ -4,3 +4,7 @@ moonmod.worldtype.moon.desc=A barren and flat satellite far away from home.
 biome.moon.plains=Lunar Plains
 
 dimension.moon.name=The Moon
+
+subtitles.alien.idle=Alien chirps
+subtitles.alien.hurt=Alien hurt
+subtitles.alien.death=Alien death
