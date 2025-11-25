@@ -2,17 +2,17 @@ package teamport.moonmod.world;
 
 public class MoonWorldFeatures {
 
-	private static boolean hasInit = false;
+    private static boolean hasInit = false;
 
-	public static void init() {
-		if (!hasInit) {
-			hasInit = true;
-			initializeWorldFeatures();
-		}
+    public static void init() {
+        if (!hasInit) {
+            hasInit = true;
+            initializeWorldFeatures();
+        }
 
-	}
+    }
 
-	private static void initializeWorldFeatures() {
+    private static void initializeWorldFeatures() {
 
-	}
+    }
 }

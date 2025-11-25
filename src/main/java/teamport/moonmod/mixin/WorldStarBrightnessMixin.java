@@ -11,14 +11,14 @@ import teamport.moonmod.world.ISpace;
 @Mixin(value = World.class, remap = false)
 public class WorldStarBrightnessMixin {
 
-	@Inject(method = "getStarBrightness(F)F", at = @At("HEAD"), cancellable = true)
-	private void onGetStarBrightness(float partialTick, CallbackInfoReturnable<Float> cir) {
-		World self = (World) (Object) this;
-		WorldType worldType = self.getWorldType();
-		if (worldType instanceof ISpace) {
-			ISpace space = (ISpace) worldType;
-			cir.setReturnValue(space.getStarBrightness(self));
-			cir.cancel();
-		}
-	}
+    @Inject(method = "getStarBrightness(F)F", at = @At("HEAD"), cancellable = true)
+    private void onGetStarBrightness(float partialTick, CallbackInfoReturnable<Float> cir) {
+        World self = (World) (Object) this;
+        WorldType worldType = self.getWorldType();
+        if (worldType instanceof ISpace) {
+            ISpace space = (ISpace) worldType;
+            cir.setReturnValue(space.getStarBrightness(self));
+            cir.cancel();
+        }
+    }
 }

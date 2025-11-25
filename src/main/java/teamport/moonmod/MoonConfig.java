@@ -10,95 +10,90 @@ import java.io.IOException;
 import static teamport.moonmod.MoonMod.MOD_ID;
 
 public class MoonConfig {
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String GeneralCategory = "General";
+    public static int DIMENSION = 6;
+    public static int currentBlockID;
+    public static int currentItemID;
+    private static TomlConfigHandler cfg;
+    private static int BLOCK_ID_STARTING_FROM = 7900;
+    private static int ITEM_ID_STARTING_FROM = 16600;
 
-	private static TomlConfigHandler cfg;
+    static void Setup() {
+        LOGGER.info("Initializing config..");
 
-	public static final String GeneralCategory = "General";
+        Toml props = new Toml("MoonMod Configs.toml");
+        assembleProperties(props);
 
-	public static int DIMENSION = 6;
+        cfg = new TomlConfigHandler(MOD_ID, props);
 
-	private static int BLOCK_ID_STARTING_FROM = 7900;
-	private static int ITEM_ID_STARTING_FROM = 16600;
+        if (cfg.getConfigFile().exists()) cfg.loadConfig();
+        else {
+            try {
+                cfg.getConfigFile().createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-	public static int currentBlockID;
-	public static int currentItemID;
+            cfg.writeConfig();
+        }
 
-	static void Setup() {
-		LOGGER.info("Initializing config..");
+        loadProperties();
+    }
 
-		Toml props = new Toml("MoonMod Configs.toml");
-		assembleProperties(props);
+    private static void loadProperties() {
+        DIMENSION = cfgGetValueOrDefault(GeneralCategory + ".DIMENSION", DIMENSION);
 
-		cfg = new TomlConfigHandler(MOD_ID, props);
+        currentBlockID = BLOCK_ID_STARTING_FROM = cfgGetValueOrDefault(GeneralCategory + ".BLOCK_ID_STARTING_FROM", BLOCK_ID_STARTING_FROM);
+        currentItemID = ITEM_ID_STARTING_FROM = cfgGetValueOrDefault(GeneralCategory + ".ITEM_ID_STARTING_FROM", ITEM_ID_STARTING_FROM);
+    }
 
-		if (cfg.getConfigFile().exists()) cfg.loadConfig();
-		else {
-			try {
-				cfg.getConfigFile().createNewFile();
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
+    private static void assembleProperties(Toml properties) {
+        properties.addCategory(GeneralCategory)
+            .addEntry("cfgVersion", 6)
+            .addEntry("DIMENSION", DIMENSION)
+            .addEntry("BLOCK_ID_STARTING_FROM", BLOCK_ID_STARTING_FROM)
+            .addEntry("ITEM_ID_STARTING_FROM", ITEM_ID_STARTING_FROM);
+    }
 
-			cfg.writeConfig();
-		}
+    public static int itemID(String itemName) {
+        return currentItemID++;
+    }
 
-		loadProperties();
-	}
+    public static int blockID(String blockName) {
+        return currentBlockID++;
+    }
 
-	private static void loadProperties() {
-		DIMENSION = cfgGetValueOrDefault(GeneralCategory + ".DIMENSION", DIMENSION);
+    @SuppressWarnings("unchecked")
+    static <T> T cfgGetValueOrDefault(String key, T def) {
+        T res = null;
 
-		currentBlockID = BLOCK_ID_STARTING_FROM = cfgGetValueOrDefault(GeneralCategory + ".BLOCK_ID_STARTING_FROM", BLOCK_ID_STARTING_FROM);
-		currentItemID = ITEM_ID_STARTING_FROM = cfgGetValueOrDefault(GeneralCategory + ".ITEM_ID_STARTING_FROM", ITEM_ID_STARTING_FROM);
-	}
+        try {
+            if (def instanceof String) {
+                res = (T) cfg.getString(key);
+            } else if (def instanceof Integer) {
+                res = (T) Integer.valueOf(cfg.getInt(key));
+            } else if (def instanceof Long) {
+                res = (T) Long.valueOf(cfg.getLong(key));
+            } else if (def instanceof Boolean) {
+                res = (T) Boolean.valueOf(cfg.getBoolean(key));
+            } else if (def instanceof Double || def instanceof Float) {
+                double raw = cfg.getDouble(key);
 
-	private static void assembleProperties(Toml properties) {
-		properties.addCategory(GeneralCategory)
-			.addEntry("cfgVersion", 6)
-			.addEntry("DIMENSION", DIMENSION)
-			.addEntry("BLOCK_ID_STARTING_FROM", BLOCK_ID_STARTING_FROM)
-			.addEntry("ITEM_ID_STARTING_FROM", ITEM_ID_STARTING_FROM);
-	}
+                if (def instanceof Float) res = (T) Float.valueOf((float) raw);
+                else res = (T) Double.valueOf(raw);
+            } else {
+                throw new RuntimeException("Invalid value type!");
+            }
 
-	public static int itemID(String itemName) {
-		return currentItemID++;
-	}
+        } catch (NullPointerException ignored) {
+        }
 
-	public static int blockID(String blockName) {
-		return currentBlockID++;
-	}
+        if (res == null) {
+            LOGGER.warn("Failed to load \"{}\"! Assuming default...", key);
+            return def;
+        }
 
-	@SuppressWarnings("unchecked")
-	static <T> T cfgGetValueOrDefault(String key, T def) {
-		T res = null;
-
-		try {
-			if (def instanceof String) {
-				res = (T) cfg.getString(key);
-			} else if (def instanceof Integer) {
-				res = (T) Integer.valueOf(cfg.getInt(key));
-			} else if (def instanceof Long) {
-				res = (T) Long.valueOf(cfg.getLong(key));
-			} else if (def instanceof Boolean) {
-				res = (T) Boolean.valueOf(cfg.getBoolean(key));
-			} else if (def instanceof Double || def instanceof Float) {
-				double raw = cfg.getDouble(key);
-
-				if (def instanceof Float) res = (T) Float.valueOf((float) raw);
-				else res = (T) Double.valueOf(raw);
-			} else {
-				throw new RuntimeException("Invalid value type!");
-			}
-
-		} catch (NullPointerException ignored) {
-		}
-
-		if (res == null) {
-			LOGGER.warn("Failed to load \"{}\"! Assuming default...", key);
-			return def;
-		}
-
-		return res;
-	}
+        return res;
+    }
 }

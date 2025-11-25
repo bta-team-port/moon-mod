@@ -18,35 +18,34 @@ import turniplabs.halplibe.util.GameStartEntrypoint;
 
 import static net.minecraft.core.entity.animal.MobFireflyCluster.FireflyColor.register;
 
-
 public class MoonMod implements GameStartEntrypoint, ModInitializer {
-	public static final String MOD_ID = "moonmod";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static String versionString = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().getFriendlyString();
-	public static String state = "alpha";
-	public static MobFireflyCluster.FireflyColor WHITE;
+    public static final String MOD_ID = "moonmod";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String VERSION_STRING = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().getFriendlyString();
+    public static final String STATE = "alpha";
+    public static MobFireflyCluster.FireflyColor WHITE;
 
-	@Override
-	public void onInitialize() {
-		LOGGER.info("MoonMod has been initialized. Have fun, brave astronaut! Version {} {}", state, versionString);
-	}
+    @Override
+    public void onInitialize() {
+        LOGGER.info("MoonMod has been initialized. Have fun, brave astronaut! Version {} {}", STATE, VERSION_STRING);
+    }
 
-	@Override
-	public void beforeGameStart() {
-		MoonConfig.Setup();
-		MoonEntities.init();
-		MoonBlocks.init();
-		MoonItems.init();
-		MoonDimension.init();
-		MoonWorldFeatures.init();
+    @Override
+    public void beforeGameStart() {
+        MoonConfig.Setup();
+        MoonEntities.init();
+        MoonBlocks.init();
+        MoonItems.init();
+        MoonDimension.init();
+        MoonWorldFeatures.init();
 
-		WHITE = register(new MobFireflyCluster.FireflyColor(10, "fireflySilver", new Biome[]{MoonBiomes.LUNAR_PLAINS}, new float[]{1.0F, 1.0F, 1.0F}));
+        WHITE = register(new MobFireflyCluster.FireflyColor(10, "fireflySilver", new Biome[]{MoonBiomes.LUNAR_PLAINS}, new float[]{1.0F, 1.0F, 1.0F}));
 
-		SoundTypes.loadSoundsJson(MOD_ID);
-	}
+        SoundTypes.loadSoundsJson(MOD_ID);
+    }
 
-	@Override
-	public void afterGameStart() {
-		MoonBlockDetails.initializeBlockDetails();
-	}
+    @Override
+    public void afterGameStart() {
+        MoonBlockDetails.initializeBlockDetails();
+    }
 }

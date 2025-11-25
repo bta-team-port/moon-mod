@@ -4,13 +4,13 @@ import net.minecraft.core.world.World;
 
 public interface ISpace {
 
-	float getGravityScalar();
+    float getGravityScalar();
 
-	boolean suffocate();
+    boolean suffocate();
 
-	String getCelestialMoonTexture();
+    String getCelestialMoonTexture();
 
-	String getCelestialSunTexture();
+    String getCelestialSunTexture();
 
-	float getStarBrightness(World world);
+    float getStarBrightness(World world);
 }

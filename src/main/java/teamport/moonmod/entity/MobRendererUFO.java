@@ -7,7 +7,7 @@ import net.minecraft.client.render.model.ModelBase;
 
 @Environment(EnvType.CLIENT)
 public class MobRendererUFO extends MobRenderer<MobUFO> {
-	public MobRendererUFO(ModelBase modelbase, float f) {
-		super(modelbase, f);
-	}
+    public MobRendererUFO(ModelBase modelbase, float f) {
+        super(modelbase, f);
+    }
 }

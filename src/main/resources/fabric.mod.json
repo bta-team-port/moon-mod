@@ -1,42 +1,58 @@
 {
-	"schemaVersion": 1,
-	"id": "moonmod",
-	"version": "${version}",
-
-	"name": "Moon Mod",
-	"description": "A remake and port of Sutr90's Moon Mod!",
-	"authors": [
-		"LukeisStuff"
-	],
-
-	"icon": "icon.png",
-
-	"contact": {
-		"homepage": "",
-		"sources": ""
-	},
-
-	"license": "CC0-1.0",
-	"environment": "*",
-
-	"entrypoints": {
-		"main": ["teamport.moonmod.MoonMod"],
-		"beforeGameStart": ["teamport.moonmod.MoonMod"],
-		"afterGameStart": ["teamport.moonmod.MoonMod"],
-		"client": ["teamport.moonmod.MoonClient"],
-		"beforeClientStart": ["teamport.moonmod.MoonClient"],
-		"afterClientStart": ["teamport.moonmod.MoonClient"],
-		"initModels": ["teamport.moonmod.MoonModels"],
-		"recipesReady": ["teamport.moonmod.MoonRecipes"],
-		"server": ["teamport.moonmod.MoonServer"]
-	},
-
-	"mixins": ["moonmod.mixins.json"],
-
-	"depends": {
-		"fabricloader": ">=0.15.5",
-		"halplibe": ">=5.3.1"
-	},
-
-	"suggests": {}
+  "schemaVersion": 1,
+  "id": "moonmod",
+  "version": "${version}",
+  "name": "Moon Mod",
+  "description": "A remake and port of Sutr90's Moon Mod!",
+  "authors": [
+    "LukeisStuff"
+  ],
+  "icon": "icon.png",
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "CC0-1.0",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "teamport.moonmod.MoonMod"
+    ],
+    "beforeGameStart": [
+      "teamport.moonmod.MoonMod"
+    ],
+    "afterGameStart": [
+      "teamport.moonmod.MoonMod"
+    ],
+    "client": [
+      "teamport.moonmod.MoonClient"
+    ],
+    "beforeClientStart": [
+      "teamport.moonmod.MoonClient"
+    ],
+    "afterClientStart": [
+      "teamport.moonmod.MoonClient"
+    ],
+    "initModels": [
+      "teamport.moonmod.MoonModels"
+    ],
+    "recipesReady": [
+      "teamport.moonmod.MoonRecipes"
+    ],
+    "server": [
+      "teamport.moonmod.MoonServer"
+    ]
+  },
+  "mixins": [
+    "moonmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabricloader}",
+    "halplibe": ">=${halplibe}",
+    "minecraft": "*",
+    "java": ">=${java}"
+  },
+  "suggests": {
+    "modmenu": ">=${modmenu}"
+  }
 }

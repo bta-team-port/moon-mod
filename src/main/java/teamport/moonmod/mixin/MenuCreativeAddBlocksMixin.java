@@ -20,26 +20,26 @@ import static net.minecraft.core.player.inventory.menu.MenuInventoryCreative.cre
 @Mixin(value = MenuInventoryCreative.class, remap = false)
 public class MenuCreativeAddBlocksMixin extends MenuInventory {
 
-	@Inject(method = "<clinit>", at = @At("TAIL"))
-	private static void injected(CallbackInfo ci) {
-		List<ItemStack> newCreativeItems = new ArrayList<>();
+    public MenuCreativeAddBlocksMixin(ContainerInventory inventory) {
+        super(inventory);
+    }
 
-		for (ItemStack item : creativeItems) {
-			if (
-				item.getMetadata() == 0
-					&& (
-					item.itemID == MoonBlocks.WOOL_REINFORCED.id())) {
-				for (DyeColor dyeColor : DyeColor.blockOrderedColors()) {
-					newCreativeItems.add(new ItemStack(item.itemID, 1, dyeColor.blockMeta));
-				}
-			} else newCreativeItems.add(item);
-		}
+    @Inject(method = "<clinit>", at = @At("TAIL"))
+    private static void injected(CallbackInfo ci) {
+        List<ItemStack> newCreativeItems = new ArrayList<>();
 
-		creativeItems = newCreativeItems;
-		creativeItemsCount = creativeItems.size();
-	}
+        for (ItemStack item : creativeItems) {
+            if (
+                item.getMetadata() == 0
+                    && (
+                    item.itemID == MoonBlocks.WOOL_REINFORCED.id())) {
+                for (DyeColor dyeColor : DyeColor.blockOrderedColors()) {
+                    newCreativeItems.add(new ItemStack(item.itemID, 1, dyeColor.blockMeta));
+                }
+            } else newCreativeItems.add(item);
+        }
 
-	public MenuCreativeAddBlocksMixin(ContainerInventory inventory) {
-		super(inventory);
-	}
+        creativeItems = newCreativeItems;
+        creativeItemsCount = creativeItems.size();
+    }
 }

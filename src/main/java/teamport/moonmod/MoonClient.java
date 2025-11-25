@@ -20,39 +20,39 @@ import static teamport.moonmod.MoonMod.MOD_ID;
 @Environment(EnvType.CLIENT)
 public class MoonClient implements ClientModInitializer, ClientStartEntrypoint {
 
-	@Override
-	public void onInitializeClient() {
-		MoonMod.LOGGER.info("MoonMod client initialized.");
-	}
+    @Override
+    public void onInitializeClient() {
+        MoonMod.LOGGER.info("MoonMod client initialized.");
+    }
 
-	@Override
-	public void beforeClientStart() {
-		ParticleDispatcher dispatcher = ParticleDispatcher.getInstance();
+    @Override
+    public void beforeClientStart() {
+        ParticleDispatcher dispatcher = ParticleDispatcher.getInstance();
 
-		dispatcher.addDispatch("fireflyWhite", (world, x, y, z, motionX, motionY, motionZ, data) -> new ParticleFirefly(world, x, y, z, motionX, motionY, motionZ, MoonMod.WHITE.getId()));
+        dispatcher.addDispatch("fireflyWhite", (world, x, y, z, motionX, motionY, motionZ, data) -> new ParticleFirefly(world, x, y, z, motionX, motionY, motionZ, MoonMod.WHITE.getId()));
 
-		SoundRepository.registerNamespace(MOD_ID);
-	}
+        SoundRepository.registerNamespace(MOD_ID);
+    }
 
-	@Override
-	public void afterClientStart() {
+    @Override
+    public void afterClientStart() {
 
-		MobInfoRegistry.register(MobUFO.class, "guidebook.section.mob.ufo.name", "guidebook.section.mob.ufo.desc",
-			10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(MoonItems.CHEESE), 1.0f, 1, 2)});
+        MobInfoRegistry.register(MobUFO.class, "guidebook.section.mob.ufo.name", "guidebook.section.mob.ufo.desc",
+            10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(MoonItems.CHEESE), 1.0f, 1, 2)});
 
-		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_DEFAULT)
-			.setCloudHeight(-100.0f)
-			.setHasAurora(false)
-			.setHasGround(true));
+        WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_DEFAULT)
+            .setCloudHeight(-1000.0f)
+            .setHasAurora(false)
+            .setHasGround(true));
 
-		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_RETRO)
-			.setCloudHeight(100.0f)
-			.setHasAurora(false)
-			.setHasGround(true));
+        WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_RETRO)
+            .setCloudHeight(-1000.0f)
+            .setHasAurora(false)
+            .setHasGround(true));
 
-		WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_SKYBLOCK)
-			.setCloudHeight(100.0f)
-			.setHasAurora(false)
-			.setHasGround(true));
-	}
+        WorldTypeFXDispatcher.getInstance().addDispatch(new WorldTypeFXMoon(MoonWorldTypes.MOON_SKYBLOCK)
+            .setCloudHeight(-1000.0f)
+            .setHasAurora(false)
+            .setHasGround(false));
+    }
 }

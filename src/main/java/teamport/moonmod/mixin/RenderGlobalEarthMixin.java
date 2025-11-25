@@ -14,33 +14,33 @@ import teamport.moonmod.world.ISpace;
 @Mixin(value = RenderGlobal.class, remap = false)
 public class RenderGlobalEarthMixin {
 
-	@Shadow
-	private WorldClient worldObj;
+    @Shadow
+    private WorldClient worldObj;
 
-	@Redirect(
-		method = "drawSky(F)V",
-		at = @At(
-			value = "INVOKE",
-			target = "Lnet/minecraft/client/render/TextureManager;loadTexture(Ljava/lang/String;)Lnet/minecraft/client/render/texture/Texture;"
-		)
-	)
-	public Texture onLoadCelestialTexture(TextureManager instance, String path) {
-		WorldType worldType = this.worldObj.getWorldType();
-		if (worldType instanceof ISpace) {
-			ISpace space = (ISpace) worldType;
-			if ("/assets/minecraft/textures/terrain/moon.png".equals(path)) {
-				String customMoonPath = space.getCelestialMoonTexture();
-				if (customMoonPath != null && !customMoonPath.isEmpty()) {
-					return instance.loadTexture(customMoonPath);
-				}
-			} else if ("/assets/minecraft/textures/terrain/sun.png".equals(path)) {
-				String customSunPath = space.getCelestialSunTexture();
-				if (customSunPath != null && !customSunPath.isEmpty()) {
-					return instance.loadTexture(customSunPath);
-				}
-			}
-		}
-		return instance.loadTexture(path);
-	}
+    @Redirect(
+        method = "drawSky(F)V",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/render/TextureManager;loadTexture(Ljava/lang/String;)Lnet/minecraft/client/render/texture/Texture;"
+        )
+    )
+    public Texture onLoadCelestialTexture(TextureManager instance, String path) {
+        WorldType worldType = this.worldObj.getWorldType();
+        if (worldType instanceof ISpace) {
+            ISpace space = (ISpace) worldType;
+            if ("/assets/minecraft/textures/terrain/moon.png".equals(path)) {
+                String customMoonPath = space.getCelestialMoonTexture();
+                if (customMoonPath != null && !customMoonPath.isEmpty()) {
+                    return instance.loadTexture(customMoonPath);
+                }
+            } else if ("/assets/minecraft/textures/terrain/sun.png".equals(path)) {
+                String customSunPath = space.getCelestialSunTexture();
+                if (customSunPath != null && !customSunPath.isEmpty()) {
+                    return instance.loadTexture(customSunPath);
+                }
+            }
+        }
+        return instance.loadTexture(path);
+    }
 
 }

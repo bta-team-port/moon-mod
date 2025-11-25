@@ -16,84 +16,84 @@ import static teamport.moonmod.MoonMod.MOD_ID;
 
 public class MoonBlocks implements BlockInitEntrypoint {
 
-	public static Block<BlockLogicPortalMoon> PORTAL_MOON;
+    public static Block<BlockLogicPortalMoon> PORTAL_MOON;
 
-	public static Block<?> REGOLITH;
+    public static Block<?> REGOLITH;
 
-	public static Block<?> CHEESE;
+    public static Block<?> CHEESE;
 
-	public static Block<?> WOOL_REINFORCED;
+    public static Block<?> WOOL_REINFORCED;
 
-	public static Block<?> LAMP;
+    public static Block<?> LAMP;
 
-	public static Block<?> LANTERN_FIREFLY_WHITE;
+    public static Block<?> LANTERN_FIREFLY_WHITE;
 
-	private static boolean hasInit = false;
+    private static boolean hasInit = false;
 
-	public static void init() {
-		if (!hasInit) {
-			hasInit = true;
-			initializeBlocks();
-		}
-	}
+    public static void init() {
+        if (!hasInit) {
+            hasInit = true;
+            initializeBlocks();
+        }
+    }
 
-	public static void initializeBlocks() {
+    public static void initializeBlocks() {
 
-		PORTAL_MOON = new BlockBuilder(MOD_ID)
-			.setBlockSound(BlockSounds.GLASS)
-			.setHardness(-1.0f)
-			.setResistance(-1.0f)
-			.setLuminance(15)
-			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
-			.build("portal.moon", "portal_moon", blockID("PORTAL_MOON"), b -> new BlockLogicPortalMoon(b, MoonDimension.MOON, MoonBlocks.CHEESE, Blocks.FIRE));
+        PORTAL_MOON = new BlockBuilder(MOD_ID)
+            .setBlockSound(BlockSounds.GLASS)
+            .setHardness(-1.0f)
+            .setResistance(-1.0f)
+            .setLuminance(15)
+            .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
+            .build("portal.moon", "portal_moon", blockID("PORTAL_MOON"), b -> new BlockLogicPortalMoon(b, MoonDimension.MOON, MoonBlocks.CHEESE, Blocks.FIRE));
 
-		REGOLITH = new BlockBuilder(MOD_ID)
-			.setBlockSound(BlockSounds.GRAVEL)
-			.setHardness(0.5f)
-			.setResistance(0.5f)
-			.setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.FIREFLIES_CAN_SPAWN)
-			.build("regolith", "regolith", blockID("REGOLITH"), b -> new BlockLogic(b, Material.dirt));
+        REGOLITH = new BlockBuilder(MOD_ID)
+            .setBlockSound(BlockSounds.GRAVEL)
+            .setHardness(0.5f)
+            .setResistance(0.5f)
+            .setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.FIREFLIES_CAN_SPAWN)
+            .build("regolith", "regolith", blockID("REGOLITH"), b -> new BlockLogic(b, Material.dirt));
 
-		CHEESE = new BlockBuilder(MOD_ID)
-			.setBlockSound(BlockSounds.WOOD)
-			.setHardness(0.6f)
-			.setResistance(0.6f)
-			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_AXE)
-			.build("cheese", "cheese", blockID("CHEESE"), b -> new BlockLogicCheese(b, Material.cloth));
+        CHEESE = new BlockBuilder(MOD_ID)
+            .setBlockSound(BlockSounds.WOOD)
+            .setHardness(0.6f)
+            .setResistance(0.6f)
+            .setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_AXE)
+            .build("cheese", "cheese", blockID("CHEESE"), b -> new BlockLogicCheese(b, Material.cloth));
 
-		WOOL_REINFORCED = new BlockBuilder(MOD_ID)
-			.setBlockSound(BlockSounds.CLOTH)
-			.setHardness(1.1f)
-			.setResistance(6.0f)
-			.setBlockItem(b -> new ItemBlockPainted<>(b, false))
-			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
-			.build("wool.reinforced", "wool_reinforced", blockID("WOOL_REINFORCED"), BlockLogicWool::new);
+        WOOL_REINFORCED = new BlockBuilder(MOD_ID)
+            .setBlockSound(BlockSounds.CLOTH)
+            .setHardness(1.1f)
+            .setResistance(6.0f)
+            .setBlockItem(b -> new ItemBlockPainted<>(b, false))
+            .setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
+            .build("wool.reinforced", "wool_reinforced", blockID("WOOL_REINFORCED"), BlockLogicWool::new);
 
-		LAMP = new BlockBuilder(MOD_ID)
-			.setBlockSound(BlockSounds.GLASS)
-			.setHardness(0.6f)
-			.setResistance(6.0f)
-			.setLuminance(15)
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.build("lamp", "lamp", blockID("LAMP"), b -> new BlockLogic(b, Material.glass));
+        LAMP = new BlockBuilder(MOD_ID)
+            .setBlockSound(BlockSounds.GLASS)
+            .setHardness(0.6f)
+            .setResistance(6.0f)
+            .setLuminance(15)
+            .setTags(BlockTags.MINEABLE_BY_PICKAXE)
+            .build("lamp", "lamp", blockID("LAMP"), b -> new BlockLogic(b, Material.glass));
 
-		LANTERN_FIREFLY_WHITE = new BlockBuilder(MOD_ID)
-			.setBlockSound(BlockSounds.GLASS)
-			.setHardness(0.1f)
-			.setResistance(0.1f)
-			.setUseInternalLight()
-			.setLuminance(14)
-			.setVisualUpdateOnMetadata()
-			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE)
-			.build("lantern.firefly.white", "lantern_firefly_silver", blockID("LANTERN_FIREFLY_WHITE"), b -> new BlockLogicLanternFirefly(b, MoonMod.WHITE, () -> MoonItems.LANTERN_FIREFLY_WHITE))
-			.setStatParent(() -> MoonItems.LANTERN_FIREFLY_WHITE);
-	}
+        LANTERN_FIREFLY_WHITE = new BlockBuilder(MOD_ID)
+            .setBlockSound(BlockSounds.GLASS)
+            .setHardness(0.1f)
+            .setResistance(0.1f)
+            .setUseInternalLight()
+            .setLuminance(14)
+            .setVisualUpdateOnMetadata()
+            .setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU, BlockTags.MINEABLE_BY_PICKAXE)
+            .build("lantern.firefly.white", "lantern_firefly_silver", blockID("LANTERN_FIREFLY_WHITE"), b -> new BlockLogicLanternFirefly(b, MoonMod.WHITE, () -> MoonItems.LANTERN_FIREFLY_WHITE))
+            .setStatParent(() -> MoonItems.LANTERN_FIREFLY_WHITE);
+    }
 
-	@Override
-	public void afterBlockInit() {
-		init();
-		MoonDimension.init();
-		PORTAL_MOON.getLogic().targetDimension = MoonDimension.MOON;
+    @Override
+    public void afterBlockInit() {
+        init();
+        MoonDimension.init();
+        PORTAL_MOON.getLogic().targetDimension = MoonDimension.getMoon();
 
-	}
+    }
 }

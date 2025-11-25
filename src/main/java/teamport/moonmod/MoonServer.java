@@ -6,8 +6,8 @@ import net.fabricmc.api.Environment;
 
 @Environment(EnvType.SERVER)
 public class MoonServer implements DedicatedServerModInitializer {
-	@Override
-	public void onInitializeServer() {
-		MoonMod.LOGGER.info("MoonMod server initialized.");
-	}
+    @Override
+    public void onInitializeServer() {
+        MoonMod.LOGGER.info("MoonMod server initialized.");
+    }
 }

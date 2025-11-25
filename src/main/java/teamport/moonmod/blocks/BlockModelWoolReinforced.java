@@ -14,21 +14,21 @@ import java.util.Iterator;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelWoolReinforced<T extends BlockLogic> extends BlockModelStandard<T> {
-	public static final IconCoordinate[] texCoords = new IconCoordinate[16];
+    public static final IconCoordinate[] texCoords = new IconCoordinate[16];
 
-	public BlockModelWoolReinforced(Block<T> block) {
-		super(block);
-	}
+    static {
+        DyeColor c;
+        for (Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("moonmod:block/wool_reinforced/" + c.colorID)) {
+            c = var0.next();
+        }
 
-	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
-		return texCoords[data & 15];
-	}
+    }
 
-	static {
-		DyeColor c;
-		for (Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("moonmod:block/wool_reinforced/" + c.colorID)) {
-			c = var0.next();
-		}
+    public BlockModelWoolReinforced(Block<T> block) {
+        super(block);
+    }
 
-	}
+    public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
+        return texCoords[data & 15];
+    }
 }
